@@ -6,7 +6,7 @@ metadata:
   namespace: kube-prometheus-stack
   labels:
     grafana_dashboard: "1"   # This value should be the same as labelValue for the grafana sidecar - https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L1358
-  annotation:
+  annotations:
     grafana_folder: Custom
 data:
   argocd.json: |
