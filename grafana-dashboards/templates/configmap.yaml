@@ -7,7 +7,7 @@ metadata:
   labels:
     app.kubernetes.io/name: {{ .name }}
     app.kubernetes.io/managed-by: Helm
-    grafana_dashbaord: {{ .labels.grafana_dashboard }}
+    grafana_dashboard: {{ .labels.grafana_dashboard }}
   annotations:
     grafana_folder: {{ .annotations.grafana_folder }}
 data:
