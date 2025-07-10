@@ -1,0 +1,17 @@
+{{- range .Values.configmaps }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .name }}
+  labels:
+    app.kubernetes.io/name: {{ .name }}
+    app.kubernetes.io/managed-by: Helm
+    grafana_dashbaord: {{ .labels.grafana_dashboard }}
+  annotations:
+    grafana_folder: {{ .annotations.grafana_folder }}
+data:
+{{- range $key, $value := .data }}
+  {{ $key }}: "{{ $value }}"
+{{- end }}
+---
+{{- end }}

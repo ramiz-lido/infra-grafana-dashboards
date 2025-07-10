@@ -1,0 +1,4 @@
+apiVersion: v2
+name: grafana-dashboards
+description: A chart to deploy Grafana dashboards via configmaps.
+version: 1.0.0

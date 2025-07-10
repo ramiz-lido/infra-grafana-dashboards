@@ -1,0 +1,10 @@
+# configmaps:
+  # - name: my-configmap
+  #   data:
+  #     APP_ENV: "production"
+  #     LOG_LEVEL: "info"
+  # - name: another-configmap
+  #   data:
+  #     FOO: "bar"
+  #     BAZ: "qux"
+
