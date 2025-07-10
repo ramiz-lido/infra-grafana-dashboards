@@ -11,7 +11,8 @@ metadata:
     grafana_folder: {{ .annotations.grafana_folder }}
 data:
 {{- range $key, $value := .data }}
-  {{ $key }}: "{{ $value }}"
+  {{ $key }}: |
+{{ $value | indent 4 }}
 {{- end }}
 ---
 {{- end }}
