@@ -1,5 +1,6 @@
 configmaps:
   - name: grafana-dashboard-argocd
+    namespace: kube-prometheus-stack
     labels:
       grafana_dashboard: "1"
     annotations:
