@@ -1,4 +1,4 @@
-{{- range .Values.configmapsFromFiles }}
+{{- range .Values.configmaps }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -11,8 +11,6 @@ metadata:
   annotations:
     grafana_folder: {{ .annotations.grafana_folder }}
 data:
-{{- $filePath := .file }}
-{{- $data := (fromYaml ( .Files.Get $filePath )) }}
 {{- range $key, $value := .data }}
   {{ $key }}: |
 {{ $value | indent 4 }}
