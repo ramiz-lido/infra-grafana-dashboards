@@ -2,7 +2,7 @@ configmapsFromFiles:
   - name: grafana-dashboard-argocd
     namespace: kube-prometheus-stack
     labels:
-      grafana_dashboard: '"1"'
+      grafana_dashboard: "1"
     annotations:
       grafana_folder: Custom
     fileKey: argocd.json
@@ -11,7 +11,7 @@ configmapsFromFiles:
   - name: grafana-dashboard-test
     namespace: kube-prometheus-stack
     labels:
-      grafana_dashboard: '"1"'
+      grafana_dashboard: "1"
     annotations:
       grafana_folder: Custom
     fileKey: test.json

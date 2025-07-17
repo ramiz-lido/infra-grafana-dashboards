@@ -1,3 +1,4 @@
+{{- $root := . }}
 {{- range .Values.configmapsFromFiles }}
 apiVersion: v1
 kind: ConfigMap
@@ -16,6 +17,6 @@ metadata:
     {{- end }}
 data:
   {{ .fileKey }}: |
-{{ .Files.Get .filePath | nindent 4 }}
+{{ $root.Files.Get .filePath | nindent 4 }}
 ---
 {{- end }}
