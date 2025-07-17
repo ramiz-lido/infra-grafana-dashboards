@@ -3,19 +3,19 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .name }}
+  {{- if .namespace }}
   namespace: {{ .namespace }}
+  {{- end }}
   labels:
-    app.kubernetes.io/name: {{ .name }}
-    app.kubernetes.io/managed-by: Helm
-    grafana_dashboard: {{ .labels.grafana_dashboard }}
+    {{- range $k, $v := .labels }}
+    {{ $k }}: {{ $v | quote }}
+    {{- end }}
   annotations:
-    grafana_folder: {{ .annotations.grafana_folder }}
+    {{- range $k, $v := .annotations }}
+    {{ $k }}: {{ $v | quote }}
+    {{- end }}
 data:
-{{- $filePath := .file }}
-{{- $data := (fromYaml ( .Files.Get $filePath )) }}
-{{- range $key, $value := .data }}
-  {{ $key }}: |
-{{ $value | indent 4 }}
-{{- end }}
+  {{ .fileKey }}: |
+{{ .Files.Get .filePath | nindent 4 }}
 ---
 {{- end }}

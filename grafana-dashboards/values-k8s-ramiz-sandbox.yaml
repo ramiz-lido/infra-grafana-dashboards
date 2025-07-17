@@ -1,5 +1,18 @@
 configmapsFromFiles:
-  - name: argocd
-    file: configmaps/argocd.yaml
-  - name: test
-    file: configmaps/test.yaml
+  - name: grafana-dashboard-argocd
+    namespace: kube-prometheus-stack
+    labels:
+      grafana_dashboard: '"1"'
+    annotations:
+      grafana_folder: Custom
+    fileKey: argocd.json
+    filePath: dashboards/argocd.json
+
+  - name: grafana-dashboard-test
+    namespace: kube-prometheus-stack
+    labels:
+      grafana_dashboard: '"1"'
+    annotations:
+      grafana_folder: Custom
+    fileKey: test.json
+    filePath: dashboards/test.json
