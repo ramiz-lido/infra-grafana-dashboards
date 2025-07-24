@@ -1,0 +1,4 @@
+apiVersion: v2
+name: infra-alerts
+description: A chart to deploy Prometheus alert rules.
+version: 1.0.0

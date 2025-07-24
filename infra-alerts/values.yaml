@@ -1,0 +1,5 @@
+
+alertRules:
+  - name: pod-not-healthy
+    namespace: kube-prometheus-stack
+    file: files/pod-not-healthy.yaml

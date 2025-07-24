@@ -1,0 +1,11 @@
+{{- $root := . }}
+{{- range .Values.alertRules }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: {{ .name }}
+  namespace: {{ .namespace }}
+spec:
+{{ $root.Files.Get .file | fromYaml | toYaml | nindent 2 }}
+---
+{{- end }}
